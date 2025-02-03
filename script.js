@@ -4,8 +4,8 @@
 function selectOption(option) {
     // Check which option was clicked
     if (option === 'yes') {
-        // Flash rainbow colors
-        flashRainbowColors(function() {
+        // Heartbeat
+        heartbeatEffect(function() {
             document.getElementById('question').style.display = 'none'; // Hide the question
             displayCatHeart(); // Display the cat-heart.gif
         });
@@ -23,21 +23,34 @@ function selectOption(option) {
     }
 }
 
-// Function to flash rainbow colors and then execute a callback function
-function flashRainbowColors(callback) {
-    var colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
-    var i = 0;
-    var interval = setInterval(function() {
-        document.body.style.backgroundColor = colors[i];
-        i = (i + 1) % colors.length;
-    }, 200); // Change color every 200 milliseconds
-    setTimeout(function() {
-        clearInterval(interval);
-        document.body.style.backgroundColor = ''; // Reset background color
-        if (callback) {
-            callback();
+// Function to flash heartbeat colors and then execute a callback function
+function heartbeatEffect(callback) {
+    let time = 1000; // Start with 1-second interval
+    let maxRed = false; // Track if screen is fully red
+
+    let interval = setInterval(function() {
+        // First beat ("lub") - Quick flash
+        document.body.style.backgroundColor = '#ff4d4d'; // Light red
+        setTimeout(() => {
+            document.body.style.backgroundColor = ''; // Reset to normal
+        }, time * 0.25); // 25% of the cycle time
+
+        // Second beat ("dub") - Stronger flash
+        setTimeout(() => {
+            document.body.style.backgroundColor = '#ff0000'; // Stronger red
+            setTimeout(() => {
+                if (!maxRed) document.body.style.backgroundColor = ''; // Reset again
+            }, time * 0.4); // 40% of the cycle time
+        }, time * 0.5); // Happens halfway through each cycle
+
+        time *= 0.85; // Speed up by reducing interval time (15% per cycle)
+
+        if (time <= 120) { // When it reaches a very fast rate
+            clearInterval(interval); // Stop the heartbeat effect
+            document.body.style.backgroundColor = '#ff0000'; // Hold full red
+            setTimeout(callback, 1500); // After 1.5 sec, go to the next screen
         }
-    }, 2000); // Flash colors for 2 seconds
+    }, time); // Each full heartbeat cycle (lub-dub-rest)
 }
 
 // Function to display the cat.gif initially
