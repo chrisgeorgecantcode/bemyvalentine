@@ -5,10 +5,31 @@ function selectOption(option) {
     // Check which option was clicked
     if (option === 'yes') {
         // Heartbeat
-        heartbeatEffect(function() {
-            document.getElementById('question').style.display = 'none'; // Hide the question
-            displayCatHeart(); // Display the cat-heart.gif
-        });
+       function heartbeatEffect(callback, time = 1000) {
+    if (time <= 120) { 
+        // Stop the heartbeat effect when it reaches very fast rate
+        document.body.style.backgroundColor = '#ff0000'; // Hold full red
+        setTimeout(callback, 1500); // After 1.5 sec, go to next screen
+        return;
+    }
+
+    // First beat ("lub") - Quick flash
+    document.body.style.backgroundColor = '#ff4d4d'; // Light red
+    setTimeout(() => {
+        document.body.style.backgroundColor = ''; // Reset to normal
+    }, time * 0.25); // 25% of the cycle time
+
+    // Second beat ("dub") - Stronger flash
+    setTimeout(() => {
+        document.body.style.backgroundColor = '#ff0000'; // Stronger red
+        setTimeout(() => {
+            document.body.style.backgroundColor = ''; // Reset again
+        }, time * 0.4); // 40% of the cycle time
+    }, time * 0.5); // Happens halfway through each cycle
+
+    // Recursive function to create a heartbeat loop, getting faster each time
+    setTimeout(() => heartbeatEffect(callback, time * 0.85), time); // Reduce time by 15% per cycle
+}
     } else if (option === 'no') {
         // Change text on the "No" button to "You sure?"
         document.getElementById('no-button').innerText = 'You sure?'; 
