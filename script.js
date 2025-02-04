@@ -7,6 +7,7 @@ function selectOption(option) {
 
         // Reset "No" button text & "Yes" button font size
         document.getElementById('no-button').innerText = 'Mmmm, Let Me Think About It';
+        document.getElementById('yes-button').innerText = 'Of Course!';
         document.getElementById('yes-button').style.fontSize = '26px'; // Reset font size
 
         // Start heartbeat effect
@@ -15,12 +16,23 @@ function selectOption(option) {
             displayCatHeart(); // Show cat-heart.gif
         });
     } else if (option === 'no') {
-        // Change text on the "No" button to "You are funny. And wrong. Try Again!"
-        document.getElementById('no-button').innerText = 'You are funny. And wrong. Try Again!';
-        document.getElementById('yes-button').innerText = 'Chris George is so much funnier than me';
+        var noButton = document.getElementById('no-button');
+        var yesButton = document.getElementById('yes-button');
+
+        // Update button text
+        noButton.innerText = 'You are funny. And wrong. Try Again!';
+        yesButton.innerText = 'Chris George is so much funnier than me';
+
+        // 🚀 Force re-rendering to apply text change
+        noButton.style.display = 'none';
+        yesButton.style.display = 'none';
+
+        setTimeout(() => {
+            noButton.style.display = 'inline-block';
+            yesButton.style.display = 'inline-block';
+        }, 50);
 
         // Increase font size of "Yes" button
-        var yesButton = document.getElementById('yes-button');
         var currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
         var newSize = parseFloat(currentFontSize) * 2; // Double size
         yesButton.style.fontSize = newSize + 'px';
