@@ -1,5 +1,9 @@
 function selectOption(option) {
     if (option === 'yes') {
+        // Play the favorite song
+        var song = document.getElementById("favorite-song");
+        song.play();
+
         // Reset "No" button text & "Yes" button font size
         document.getElementById('no-button').innerText = 'Mmmm, Let Me Think About It';
         document.getElementById('yes-button').style.fontSize = '26px'; // Reset font size
@@ -64,6 +68,10 @@ function displayCat() {
 
 // Function to display the cat-heart.gif
 function displayCatHeart() {
+    var song = document.getElementById("favorite-song");
+    song.pause();  // Stop the song when the cat-heart appears
+    song.currentTime = 0; // Reset song position to the start
+
     document.getElementById('image-container').innerHTML = ''; // Clear existing content
     var imageContainer = document.getElementById('image-container');
     var catHeartImage = new Image();
