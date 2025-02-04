@@ -25,12 +25,12 @@ function heartbeatEffect(callback, time = 1000) {
     if (time <= 120) { 
         // Stop the heartbeat effect when it reaches very fast rate
         document.body.style.backgroundColor = '#661515'; // Hold full deep red
-        setTimeout(callback, 1500); // After 1.5 sec, go to next screen
+        setTimeout(callback, 3000); // After 1.5 sec, go to next screen
         return;
     }
 
     // Ensure smooth transition effect
-    document.body.style.transition = `background-color ${time * 0.5}ms ease-in-out`;
+    document.body.style.transition = `background-color ${time * 3}ms ease-in-out`;
 
     // First beat ("Lub") - Slightly darken
     document.body.style.backgroundColor = '#4d0f0f'; // Slightly lighter red
