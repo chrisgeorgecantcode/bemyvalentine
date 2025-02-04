@@ -25,7 +25,7 @@ function heartbeatEffect(callback, time = 1000) {
     if (time <= 80) { 
         // Stop the heartbeat effect when it reaches a fast rate
         document.body.style.backgroundColor = '#661515'; // Hold full deep red
-        setTimeout(callback, 200); // After 1 sec, go to next screen
+        setTimeout(callback, 500); // After 0.5 sec, go to next screen
         return;
     }
 
@@ -43,12 +43,12 @@ function heartbeatEffect(callback, time = 1000) {
             setTimeout(() => {
                 // Return to resting color (#212121) before next cycle
                 document.body.style.backgroundColor = '#212121';
-            }, time * 0.4); // "Dub" lasts 30% of the cycle
+            }, time * 0.3); // "Dub" lasts 30% of the cycle
         }, time * 0.15); // "Lub-Dub" grouping with short gap
     }, time * 0.2); // "Lub" lasts 30% of the cycle
 
     // Recursive function to create a heartbeat loop, getting faster each time
-    setTimeout(() => heartbeatEffect(callback, time * 0.96), time); // Reduce time by 4% per cycle
+    setTimeout(() => heartbeatEffect(callback, time * 0.97), time); // Reduce time by 3% per cycle
 }
 
 // Function to display the cat.gif initially
