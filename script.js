@@ -15,8 +15,9 @@ function selectOption(option) {
             displayCatHeart(); // Show cat-heart.gif
         });
     } else if (option === 'no') {
-        // Change text on the "No" button to "You sure?"
-        document.getElementById('no-button').innerText = 'You sure?';
+        // Change text on the "No" button to "You are funny. And wrong. Try Again!"
+        document.getElementById('no-button').innerText = 'You are funny. And wrong. Try Again!';
+        document.getElementById('yes-button').innerText = 'Chris George is so much funnier than me';
 
         // Increase font size of "Yes" button
         var yesButton = document.getElementById('yes-button');
