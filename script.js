@@ -84,7 +84,7 @@ function displayCat() {
 }
 
 // Function to display Longdistance.jpg after heartbeat animation
-function displayCatHeart() {
+function displayLongDistanceImage() {
     var imageContainer = document.getElementById('image-container');
     imageContainer.innerHTML = ''; // Clear existing content
 
@@ -94,6 +94,9 @@ function displayCatHeart() {
     longDistanceImage.onload = function() {
         imageContainer.appendChild(longDistanceImage);
         
+        // Hide the Yes and No buttons
+        document.getElementById('options').style.display = 'none';
+
         // Display the message after the image
         document.getElementById('message').style.display = 'block';
     };
