@@ -1,8 +1,9 @@
 function selectOption(option) {
     if (option === 'yes') {
-        // Play the favorite song
+        // Play favorite song
         var song = document.getElementById("favorite-song");
-        song.play();
+        song.play(); // Start the song
+        song.loop = false; // Ensure it does NOT loop
 
         // Reset "No" button text & "Yes" button font size
         document.getElementById('no-button').innerText = 'Mmmm, Let Me Think About It';
@@ -24,6 +25,7 @@ function selectOption(option) {
         yesButton.style.fontSize = newSize + 'px';
     }
 }
+
 
 function heartbeatEffect(callback, time = 1000) {
     if (time <= 120) { 
@@ -68,10 +70,6 @@ function displayCat() {
 
 // Function to display the cat-heart.gif
 function displayCatHeart() {
-    var song = document.getElementById("favorite-song");
-    song.pause();  // Stop the song when the cat-heart appears
-    song.currentTime = 0; // Reset song position to the start
-
     document.getElementById('image-container').innerHTML = ''; // Clear existing content
     var imageContainer = document.getElementById('image-container');
     var catHeartImage = new Image();
