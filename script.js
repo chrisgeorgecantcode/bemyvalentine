@@ -73,6 +73,8 @@ function heartbeatEffect(callback, time = 1000) {
 // Function to display Concert.gif initially
 function displayCat() {
     var imageContainer = document.getElementById('image-container');
+    imageContainer.innerHTML = ''; // Clear any existing content
+
     var concertImage = new Image();
     concertImage.src = 'Concert.gif'; // New image
     concertImage.alt = 'Concert';
@@ -83,17 +85,19 @@ function displayCat() {
 
 // Function to display Longdistance.jpg after heartbeat animation
 function displayCatHeart() {
-    document.getElementById('image-container').innerHTML = ''; // Clear existing content
     var imageContainer = document.getElementById('image-container');
+    imageContainer.innerHTML = ''; // Clear existing content
+
     var longDistanceImage = new Image();
     longDistanceImage.src = 'Longdistance.jpg'; // New image
     longDistanceImage.alt = 'Long Distance';
     longDistanceImage.onload = function() {
         imageContainer.appendChild(longDistanceImage);
-        document.getElementById('options').style.display = 'none'; // Hide buttons
+        
+        // Display the message after the image
+        document.getElementById('message').style.display = 'block';
     };
 }
 
 // Display Concert.gif initially
 displayCat();
-
