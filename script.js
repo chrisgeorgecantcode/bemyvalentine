@@ -23,29 +23,32 @@ function selectOption(option) {
 
 function heartbeatEffect(callback, time = 1000) {
     if (time <= 120) { 
-        // Stop the heartbeat effect when it reaches very fast rate
+        // Stop the heartbeat effect when it reaches a fast rate
         document.body.style.backgroundColor = '#661515'; // Hold full deep red
         setTimeout(callback, 1000); // After 1 sec, go to next screen
         return;
     }
 
-    // Apply sharper transition effect for distinct lub-dub beats
-    document.body.style.transition = `background-color ${time * 0.2}ms ease-in`;
+    // Ensure smooth but sharp transitions
+    document.body.style.transition = "background-color 100ms ease-in-out";
 
-    // First beat ("Lub") - Quick flash of light red
-    document.body.style.backgroundColor = '#4d0f0f';
+    // First beat ("Lub") - Quick deep red
+    document.body.style.backgroundColor = '#661515';
     setTimeout(() => {
-        // Second beat ("Dub") - Quick flash of deep red
-        document.body.style.backgroundColor = '#661515';
+        // Short pause between lub and dub
+        document.body.style.backgroundColor = '#4d0f0f';
         setTimeout(() => {
-            // Rest - Reset back to dark gray before the next beat
-            document.body.style.transition = `background-color ${time * 0.2}ms ease-out`;
-            document.body.style.backgroundColor = '#212121';
-        }, time * 0.25); // Dub should last 25% of the cycle
-    }, time * 0.15); // Lub should last 15% of the cycle
+            // Second beat ("Dub") - Strong deep red
+            document.body.style.backgroundColor = '#661515';
+            setTimeout(() => {
+                // Return to resting color (#212121) before next cycle
+                document.body.style.backgroundColor = '#212121';
+            }, time * 0.3); // "Dub" lasts 30% of the cycle
+        }, time * 0.15); // "Lub-Dub" grouping with short gap
+    }, time * 0.15); // "Lub" lasts 15% of the cycle
 
     // Recursive function to create a heartbeat loop, getting faster each time
-    setTimeout(() => heartbeatEffect(callback, time * 0.9), time); // Reduce time by 10% per cycle
+    setTimeout(() => heartbeatEffect(callback, time * 0.85), time); // Reduce time by 15% per cycle
 }
 
 // Function to display the cat.gif initially
