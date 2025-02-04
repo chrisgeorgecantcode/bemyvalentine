@@ -21,27 +21,22 @@ function selectOption(option) {
     }
 }
 
-// Function to execute heartbeat effect and then transition
 function heartbeatEffect(callback, time = 1000) {
     if (time <= 120) { 
         // Stop heartbeat effect when it reaches very fast rate
-        document.body.style.backgroundColor = '#ff0000'; // Hold full red
+        document.body.style.backgroundColor = '#661515'; // Hold deep red
         setTimeout(callback, 1500); // After 1.5 sec, go to next screen
         return;
     }
 
-    // First beat ("lub") - Quick flash
-    document.body.style.backgroundColor = '#ff4d4d'; // Light red
-    setTimeout(() => {
-        document.body.style.backgroundColor = ''; // Reset to normal
-    }, time * 0.25); // 25% of the cycle time
+    // Apply smooth transition effect
+    document.body.style.transition = `background-color ${time * 0.5}ms ease-in-out`;
 
-    // Second beat ("dub") - Stronger flash
+    // First beat ("lub") - Slowly darken
+    document.body.style.backgroundColor = '#661515';
     setTimeout(() => {
-        document.body.style.backgroundColor = '#ff0000'; // Stronger red
-        setTimeout(() => {
-            document.body.style.backgroundColor = ''; // Reset again
-        }, time * 0.4); // 40% of the cycle time
+        // Second beat ("dub") - Slowly return to normal
+        document.body.style.backgroundColor = '#212121';
     }, time * 0.5); // Happens halfway through each cycle
 
     // Recursive function to create a heartbeat loop, getting faster each time
