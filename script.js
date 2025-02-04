@@ -48,7 +48,7 @@ function heartbeatEffect(callback, time = 1000) {
     }, time * 0.15); // "Lub" lasts 15% of the cycle
 
     // Recursive function to create a heartbeat loop, getting faster each time
-    setTimeout(() => heartbeatEffect(callback, time * 0.95), time); // Reduce time by 15% per cycle
+    setTimeout(() => heartbeatEffect(callback, time * 0.85), time); // Reduce time by 15% per cycle
 }
 
 // Function to display the cat.gif initially
