@@ -4,9 +4,11 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
-    background-color: #212121 !important; /* Force the dark background on load */
-    transition: background-color 0.5s ease-in-out; /* Enable smooth color transitions */
+    background-color: #212121 !important; /* Ensure the background starts dark */
+    transition: background-color 100ms ease-in-out; /* Smooth transitions */
+    will-change: background-color; /* Forces the browser to optimize for color changes */
 }
+
 
 #container {
     display: flex; /* Use flexbox layout */
