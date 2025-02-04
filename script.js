@@ -70,29 +70,30 @@ function heartbeatEffect(callback, time = 1000) {
     setTimeout(() => heartbeatEffect(callback, time * 0.85), time); // Reduce time by 5% per cycle
 }
 
-// Function to display the cat.gif initially
+// Function to display Concert.gif initially
 function displayCat() {
     var imageContainer = document.getElementById('image-container');
-    var catImage = new Image();
-    catImage.src = 'cat.gif';
-    catImage.alt = 'Cat';
-    catImage.onload = function() {
-        imageContainer.appendChild(catImage);
+    var concertImage = new Image();
+    concertImage.src = 'Concert.gif'; // New image
+    concertImage.alt = 'Concert';
+    concertImage.onload = function() {
+        imageContainer.appendChild(concertImage);
     };
 }
 
-// Function to display the cat-heart.gif
+// Function to display Longdistance.jpg after heartbeat animation
 function displayCatHeart() {
     document.getElementById('image-container').innerHTML = ''; // Clear existing content
     var imageContainer = document.getElementById('image-container');
-    var catHeartImage = new Image();
-    catHeartImage.src = 'cat-heart.gif';
-    catHeartImage.alt = 'Cat Heart';
-    catHeartImage.onload = function() {
-        imageContainer.appendChild(catHeartImage);
+    var longDistanceImage = new Image();
+    longDistanceImage.src = 'Longdistance.jpg'; // New image
+    longDistanceImage.alt = 'Long Distance';
+    longDistanceImage.onload = function() {
+        imageContainer.appendChild(longDistanceImage);
         document.getElementById('options').style.display = 'none'; // Hide buttons
     };
 }
 
-// Display the cat.gif initially
+// Display Concert.gif initially
 displayCat();
+
