@@ -40,11 +40,11 @@ function heartbeatEffect(callback, time = 1000) {
         setTimeout(() => {
             // Return to resting color (#212121) before next cycle
             document.body.style.backgroundColor = '#212121';
-        }, time * 0.5); // "Dub" lasts 40% of the cycle
+        }, time * 0.5); // "Dub" lasts 50% of the cycle
     }, time * 0.3); // "Lub" lasts 30% of the cycle
 
     // Recursive function to create a heartbeat loop, getting faster each time
-    setTimeout(() => heartbeatEffect(callback, time * 0.85), time); // Reduce time by 15% per cycle
+    setTimeout(() => heartbeatEffect(callback, time * 0.95), time); // Reduce time by 5% per cycle
 }
 
 // Function to display the cat.gif initially
