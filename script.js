@@ -13,7 +13,7 @@ function selectOption(option) {
         // Start heartbeat effect
         heartbeatEffect(function() {
             document.getElementById('question').style.display = 'none'; // Hide question
-            displayCatHeart(); // Show cat-heart.gif
+            longdistanceimage(); // Show Longdistance.jpg
         });
     } else if (option === 'no') {
         var noButton = document.getElementById('no-button');
@@ -70,13 +70,13 @@ function heartbeatEffect(callback, time = 1000) {
     setTimeout(() => heartbeatEffect(callback, time * 0.85), time); // Reduce time by 5% per cycle
 }
 
-// Function to display Concert.gif initially
+// Function to display Concert.GIF initially
 function displayCat() {
     var imageContainer = document.getElementById('image-container');
     imageContainer.innerHTML = ''; // Clear any existing content
 
     var concertImage = new Image();
-    concertImage.src = 'Concert.gif'; // New image
+    concertImage.src = 'Concert.GIF'; // New image
     concertImage.alt = 'Concert';
     concertImage.onload = function() {
         imageContainer.appendChild(concertImage);
@@ -99,5 +99,5 @@ function displayCatHeart() {
     };
 }
 
-// Display Concert.gif initially
+// Display Concert.GIF initially
 displayCat();
