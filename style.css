@@ -1,11 +1,11 @@
 /* style.css */
 
 body {
-    font-family: Arial, sans-serif; /* Fallback font family */
-    text-align: center; /* Center-align text */
-    margin: 0; /* Remove default margin */
-    background-color: #212121; /* Set background color to dark gray */
-    transition: background-color 0.5s ease-in-out; /* Smooth transition for heartbeat */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    background-color: #212121 !important; /* Force the dark background on load */
+    transition: background-color 0.5s ease-in-out; /* Enable smooth color transitions */
 }
 
 #container {
