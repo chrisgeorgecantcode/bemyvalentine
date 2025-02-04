@@ -22,7 +22,7 @@ function selectOption(option) {
 }
 
 function heartbeatEffect(callback, time = 1000) {
-    if (time <= 120) { 
+    if (time <= 500) { 
         // Stop the heartbeat effect when it reaches a fast rate
         document.body.style.backgroundColor = '#661515'; // Hold full deep red
         setTimeout(callback, 1000); // After 1 sec, go to next screen
