@@ -1,9 +1,8 @@
-// Function to handle button click events
 function selectOption(option) {
     if (option === 'yes') {
-        // Reset "No" button text and "Yes" button font size
+        // Reset "No" button text & "Yes" button font size
         document.getElementById('no-button').innerText = 'Mmmm, Let Me Think About It';
-        document.getElementById('yes-button').style.fontSize = '26px'; // Reset to default
+        document.getElementById('yes-button').style.fontSize = '26px'; // Reset font size
 
         // Start heartbeat effect
         heartbeatEffect(function() {
@@ -22,10 +21,10 @@ function selectOption(option) {
     }
 }
 
-// Function to flash heartbeat colors and then execute a callback function
+// Function to execute heartbeat effect and then transition
 function heartbeatEffect(callback, time = 1000) {
     if (time <= 120) { 
-        // Stop the heartbeat effect when it reaches very fast rate
+        // Stop heartbeat effect when it reaches very fast rate
         document.body.style.backgroundColor = '#ff0000'; // Hold full red
         setTimeout(callback, 1500); // After 1.5 sec, go to next screen
         return;
